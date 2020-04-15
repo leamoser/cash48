@@ -17,7 +17,7 @@ $zahlungen = get_all_zahlungen_by_wg_and_date($wg_id, $datumreset);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>alli buechige im aktuelle ziitruum (also nochem letzte kassesturz bis jetzt)</h1>
+    <h1>alli zahlige im aktuelle ziitruum (also nochem letzte kassesturz bis jetzt)</h1>
 </article>
 <div>
     <?php foreach ($zahlungen as $zahlung) {

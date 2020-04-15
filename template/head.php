@@ -20,9 +20,9 @@ $angemeldetals = get_person_by_id($user_id);
         <nav>
             <ul>
                 <li><a href="payment.php">Zahlung eintragen</a></li>
-                <li><a href="bookings.php">Alle Buchungen</a></li>
+                <li><a href="bookings.php">Aktuelle Zahlungen</a></li>
                 <li><a href="reset.php">Kassensturz machen</a></li>
-                <li><a href="lastreset.php">Letzter Kassensturz</a></li>
+                <li><a href="lastreset.php">Kassenstürze</a></li>
                 <li><a href="profile.php">Dein Profil</a></li>
                 <li><a href="index.php">Logout</a></li>
             </ul>

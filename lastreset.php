@@ -24,7 +24,7 @@ $details = get_reset_details_by_id($idreset);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>alli agobe zum letzte kassesturz.</h1>
+    <h1>alli agobe zum de kassestürz vo dinere wg.</h1>
 </article>
 
 <h3>duregfüehrt am: <?php echo $datumreset->format('d. F Y | G:i') ?><br>duregfüehrt vo: <?php echo $mensch['name'] ?></h3>
