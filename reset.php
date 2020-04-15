@@ -4,35 +4,38 @@ session_start();
 require_once('system/config.php');
 require_once('system/data.php');
 require_once('system/sessionhandler.php');
-$menschen = get_all_persons();
 
+$wgmenschen = get_persons_by_wg($wg_id);
 
+//Kassensturz machen
 if (isset($_POST['make_reset'])) {
-    $yann = get_person_by_id(1);
-    $basil = get_person_by_id(2);
-    $dominik = get_person_by_id(3);
-    $lea = get_person_by_id(4);
-    $v_yann = $yann['value'];
-    $v_basil = $basil['value'];
-    $v_dominik = $dominik['value'];
-    $v_lea = $lea['value'];
-    $neuerwert = 0;
-    insert_reset($user_id, $v_yann, $v_basil, $v_dominik, $v_lea);
-    foreach ($menschen as $mensch) {
-        $person_id = $mensch['id'];
-        values_updaten($neuerwert, $person_id);
-    }
-    header('Location: /lastreset.php');
+    //Reset eintragen und Reset-ID abrufen
+    insert_reset($user_id, $wg_id);
+    $lastreset = get_latest_reset_by_wg($wg_id);
+    $reset_id = $lastreset['id'];
+
+    //Einträge für die Einzelnen Personen
+    foreach ($wgmenschen as $wgmensch) {
+        //Details zum Mensch holen
+        $wgmensch_id = $wgmensch['id'];
+        $person = get_person_by_id($wgmensch_id);
+        $wgmensch_value = $person['value'];
+        //In der Datenbank eintragen
+        insert_details_reset($reset_id, $wgmensch_id, $wgmensch_value);
+        //Beträge auf 0 zurücksetzen
+        $resetwert = 0;
+        values_updaten($resetwert, $wgmensch_id);
+    };
 }
 ?>
 
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Willst du die aktuellen Einträge zurücksetzen und einen Kassensturz machen?</h1>
+    <h1>wötsch alli iträg zruggsetze und en kassesturz mache?</h1>
 </article>
-<p>Diese Aktion ist final. Der aktuelle Stand wird bei allen auf 0 zurückgesetzt. Auf dem Nachfolgenden Screen siehts du, wer wem was schuldet.</p>
+<p>wenn du uf de chnopf klicksch, chasch die aktion nümme rückgängig mache. alli kontoständ werded uf 0 zruggsetzt. ufem scree nocher, und ide navigation unter letzte kassesturz gsehsch aber wer wem wieviel schuldet.</p>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <button type="submit" name="make_reset" value="reset">Ja, ich will.</button>
+    <button type="submit" name="make_reset" value="reset">jo, ich will</button>
 </form>
 <?php include('template/foot.php') ?>

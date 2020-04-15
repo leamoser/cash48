@@ -5,34 +5,32 @@ require_once('system/config.php');
 require_once('system/data.php');
 require_once('system/sessionhandler.php');
 
-$menschen = get_all_persons();
-$zahlungen = get_all_zahlungen();
+//Datum letzter Reset holen
+$lastreset = get_latest_reset_by_wg($wg_id);
+$datumreset = $lastreset['date'];
+
+//Zahlungen Anhand dieser Daten holen
+$zahlungen = get_all_zahlungen_by_wg_and_date($wg_id, $datumreset);
 
 ?>
 
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Alle Buchungen</h1>
+    <h1>alli buechige im aktuelle ziitruum (also nochem letzte kassesturz bis jetzt)</h1>
 </article>
 <div>
-    <?php foreach($zahlungen as $zahlung){ 
-        if($zahlung['person'] == 1){
-            $mensch = "Yann";
-        }elseif($zahlung['person'] == 2){
-            $mensch = "Basil";
-        }elseif($zahlung['person'] == 3){
-            $mensch = "Dominik";
-        }else{
-            $mensch = "Lea";
-        };
+    <?php foreach ($zahlungen as $zahlung) {
+        //Daten einzelhe Zahlungen holen
+        $menschid = $zahlung['person'];
+        $mensch = get_person_by_id($menschid);
         $datum = new DateTime($zahlung['date']);
         ?>
         <div class="buchungen">
-            <h3><?php echo $datum->format('d. F Y') ?></h3>
-            <p><strong>Was: </strong><?php echo $zahlung['description'] ?></p>
-            <p><strong>Von wem: </strong><?php echo $mensch ?></p>
-            <p><strong>Betrag: </strong> <?php echo $zahlung['value'] ?></p>
+            <h3><?php echo $datum->format('d. F Y | G:i') ?></h3>
+            <p><strong>was: </strong><?php echo $zahlung['description'] ?></p>
+            <p><strong>vo wem erfasst: </strong><?php echo $mensch['name'] ?></p>
+            <p><strong>betrag: </strong> <?php echo $zahlung['value'] ?> CHF</p>
         </div>
     <?php } ?>
 </div>

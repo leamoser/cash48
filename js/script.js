@@ -4,3 +4,4 @@ function showMenu() {
 function closeMenu() {
     document.querySelector(".overlay").style.display = "none";
 }
+console.log("SCRIPT LOADED");

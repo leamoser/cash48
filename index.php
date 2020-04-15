@@ -52,7 +52,7 @@ if (isset($_POST['login_submit'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-  <h1>da isch cash48.<br>dis wg-bezahl app des vertrauens.</h1>
+  <h1>da isch cash48.<br>dis wg-app des vertrauens.</h1>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <p>nutzername</p>
