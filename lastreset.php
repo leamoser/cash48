@@ -22,7 +22,7 @@ if ($reset['person'] == 1) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Alle Angaben zum letzten Kassensturz.</h1>
+    <h1>Alle Angaben zum letzten Kassensturzz.</h1>
 </article>
 
 <h3>Durchgeführt am: <?php echo $datum->format('d. F Y') ?><br>Durchgeführt von: <?php echo $mensch ?></h3>
