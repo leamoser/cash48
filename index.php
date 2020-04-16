@@ -26,14 +26,13 @@ if (isset($_POST['login_submit'])) {
   if (!empty($_POST['pw'])) {
     $login_pw = $_POST['pw'];
   } else {
-    $msg .= "Kein Passwort eingegeben";
+    $msg .= "Kein Passwort eingegeben.<br>";
     $login_valid = false;
   }
 
   //Wenn Validierungen bestanden abgleichen
   if ($login_valid) {
     $result = login($login_nn, $login_pw);
-    var_dump($result);
     if ($result) {
       $user = $result;
       header('Location: /payment.php');
@@ -42,10 +41,9 @@ if (isset($_POST['login_submit'])) {
       //Abspeichern der User-ID
       $_SESSION['userid'] = $user['id'];
     } else {
-      $msg .= "Login hat nicht geklappt, Passwort und/oder Nutzername ist falsch! ";
-      var_dump($msg);
+      $msg .= "Login hat nicht geklappt, Passwort und/oder Nutzername ist falsch!";
     }
-  } else { }
+  } else { };
 }
 
 ?>
@@ -59,6 +57,11 @@ if (isset($_POST['login_submit'])) {
   <input type="text" name="nn" id="id_nn">
   <p>passwort</p>
   <input type="password" name="pw" id="id_pw">
+  <?php if (strlen($msg) != 0) { ?>
+    <div class="error">
+      <?php echo $msg; ?>
+    </div>
+  <?php } ?>
   <button type="submit" name="login_submit" value="einloggen">amelde</button>
 </form>
 

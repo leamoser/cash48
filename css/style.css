@@ -123,6 +123,9 @@ main div.buchungen{
 main div.buchungen:nth-child(odd){
     background-color: var(--akzent-50);
 }
+.error{
+    color: red;
+}
 
 /*FOOTER----------------------------------*/
 footer{

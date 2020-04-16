@@ -17,5 +17,5 @@ $wg = get_wg_by_id($du['wg']);
 </article>
 <p><strong>din nutzername: </strong><?php echo $du['name'] ?></p>
 <p><strong>din wg-name: </strong><?php echo $wg['name'] ?></p>
-<p><strong>din kontostand: </strong><?php echo $du['value'] ?> CHF</p>
+<p><strong>din kontostand: </strong><?php echo round($du['value'], 1) ?> CHF</p>
 <?php include('template/foot.php') ?>

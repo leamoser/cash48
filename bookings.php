@@ -30,7 +30,7 @@ $zahlungen = get_all_zahlungen_by_wg_and_date($wg_id, $datumreset);
             <h3><?php echo $datum->format('d. F Y | G:i') ?></h3>
             <p><strong>was: </strong><?php echo $zahlung['description'] ?></p>
             <p><strong>vo wem erfasst: </strong><?php echo $mensch['name'] ?></p>
-            <p><strong>betrag: </strong> <?php echo $zahlung['value'] ?> CHF</p>
+            <p><strong>betrag: </strong> <?php echo money_format('%.2n', $zahlung['value']) ?> CHF</p>
         </div>
     <?php } ?>
 </div>

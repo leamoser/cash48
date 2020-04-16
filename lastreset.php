@@ -32,6 +32,6 @@ $details = get_reset_details_by_id($idreset);
     $personid = $detail['person'];
     $person = get_person_by_id($personid);
     ?>
-    <p><strong><?php echo $person['name'] ?>: </strong> <?php echo $detail['value'] ?>CHF</p>
+    <p><strong><?php echo $person['name'] ?>: </strong> <?php echo round($detail['value'], 1) ?> CHF</p>
 <?php } ?>
 <?php include('template/foot.php') ?>

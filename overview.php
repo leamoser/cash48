@@ -15,7 +15,7 @@ $menschen = get_persons_by_wg($wg_id);
     <h1>di aktuell übersicht über d'kontoständ i dinere wg</h1>
 </article>
 <?php foreach ($menschen as $mensch) { ?>
-    <p><strong><?php echo $mensch['name'] ?>: </strong> <?php echo $mensch['value'] ?> CHF</p>
+    <p><strong><?php echo $mensch['name'] ?>: </strong> <?php echo round($mensch['value'], 1) ?> CHF</p>
 <?php } ?>
 <a href="payment.php"><button>neui zahlig erfasse</button></a>
 <?php include('template/foot.php') ?>
