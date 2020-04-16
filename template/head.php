@@ -21,6 +21,7 @@ $angemeldetals = get_person_by_id($user_id);
             <ul>
                 <li><a href="payment.php">Zahlung eintragen</a></li>
                 <li><a href="bookings.php">Aktuelle Zahlungen</a></li>
+                <li><a href="overview.php">Übersicht</a></li>
                 <li><a href="reset.php">Kassensturz machen</a></li>
                 <li><a href="lastreset.php">Kassenstürze</a></li>
                 <li><a href="profile.php">Dein Profil</a></li>

@@ -135,6 +135,14 @@ function insert_split($user_id, $aufgeteilterbetrag, $idzahlung)
   $values = array($user_id, $aufgeteilterbetrag, $idzahlung);
   return $stmt->execute($values);
 }
+//Alle Splits einer Zahlungs-ID holen
+function get_splits_by_zahlung_id($zahlungsid)
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM splits WHERE zahlung='$zahlungsid'";
+  $result = $db->query($sql);
+  return $result->fetchAll();
+}
 
 //KASSENSTURZ--------------------------------------------
 //Kassensturz-Splits eintragen
