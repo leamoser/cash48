@@ -104,10 +104,10 @@ if (isset($_POST['make_reset'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>wötsch alli iträg zruggsetze und en kassesturz mache?</h1>
+    <h1>Kassensturz<br>machen.</h1>
+    <p>Diese Aktion ist final. Der aktuelle Stand wird bei allen auf 0 zurückgesetzt. Auf dem Nachfolgenden Screen siehts du, wer wem was schuldet.</p>
 </article>
-<p>wenn du uf de chnopf klicksch, chasch die aktion nümme rückgängig mache. alli kontoständ werded uf 0 zruggsetzt. ufem scree nocher, und ide navigation unter letzte kassesturz gsehsch aber wer wem wieviel schuldet.</p>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <button type="submit" name="make_reset" value="reset">jo, ich will</button>
+    <button type="submit" name="make_reset" value="reset">Ja, ich will!</button>
 </form>
 <?php include('template/foot.php') ?>

@@ -17,7 +17,8 @@ $zahlungen = get_all_zahlungen_by_wg_and_date($wg_id, $datumreset);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>alli zahlige im aktuelle ziitruum (also nochem letzte kassesturz bis jetzt)</h1>
+    <h1>Aktuelle<br>Zahlungen.</h1>
+    <p>Hier siehst du alle Buchungen der aktuellen Periode.</p>
 </article>
 <div>
     <?php foreach ($zahlungen as $zahlung) {

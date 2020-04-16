@@ -62,19 +62,20 @@ if (isset($_POST['zahlung_eintragen'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>salü <?php echo $user['name'] ?>.<br>do chasch du e neui zahlig erfasse</h1>
+    <h1>Zahlung<br> erfassen.</h1>
+    <p>Salü <?php echo $user['name'] ?>. Gib hier die Angaben zu deiner Zahlung ein und trage sie so ins System ein.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>
-        <label for="betrag">de betrag in CHF</label><br>
+        <label for="betrag">Betrag in CHF</label><br>
         <input type="number" step="0.05" name="betrag" id="betrag">
     </div>
     <div>
-        <label for="beschreibung">beschribig</label><br>
+        <label for="beschreibung">Beschreibung</label><br>
         <textarea name="beschreibung" id="beschreibung"></textarea>
     </div>
     <div>
-        <p>persone, wo d'zahlig betrifft</p>
+        <p>Personen, die die Zahlung betrifft</p>
         <?php foreach ($menschen as $mensch) { ?>
             <div class="checks">
                 <label class="container" for="<?php echo $mensch['name'] ?>">
@@ -84,6 +85,6 @@ if (isset($_POST['zahlung_eintragen'])) {
             </div>
         <?php } ?>
     </div>
-    <button type="submit" name="zahlung_eintragen" value="zahlung">zahlig iträge</button>
+    <button type="submit" name="zahlung_eintragen" value="zahlung">Zahlung eintragen</button>
 </form>
 <?php include('template/foot.php') ?>

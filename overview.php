@@ -12,11 +12,12 @@ $menschen = get_persons_by_wg($wg_id);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>di aktuell übersicht über d'kontoständ i dinere wg</h1>
+    <h1>Eine<br>Übersicht.</h1>
+    <p>Hier siehst du, wie die Finanzen in deiner WG im Moment so aussehen.</p>
 </article>
 <?php foreach ($menschen as $mensch) { ?>
     <div value="<?php echo $mensch['value'] ?>" class="balken"></div>
     <p><strong><?php echo $mensch['name'] ?>: </strong> <?php echo round($mensch['value'], 1) ?> CHF</p>
 <?php } ?>
-<a href="payment.php"><button>neui zahlig erfasse</button></a>
+<a href="payment.php"><button>Neue Zahlung erfassen</button></a>
 <?php include('template/foot.php') ?>

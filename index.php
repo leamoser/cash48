@@ -50,19 +50,20 @@ if (isset($_POST['login_submit'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-  <h1>da isch cash48.<br>dis wg-app des vertrauens.</h1>
+  <h1>cash48</h1>
+  <p>Deine WG-App des Vertrauen.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-  <p>nutzername</p>
+  <p>Nutzername</p>
   <input type="text" name="nn" id="id_nn">
-  <p>passwort</p>
+  <p>Passwort</p>
   <input type="password" name="pw" id="id_pw">
   <?php if (strlen($msg) != 0) { ?>
     <div class="error">
       <?php echo $msg; ?>
     </div>
   <?php } ?>
-  <button type="submit" name="login_submit" value="einloggen">amelde</button>
+  <button type="submit" name="login_submit" value="einloggen">Anmelden</button>
 </form>
 
 <?php include('template/foot.php') ?>

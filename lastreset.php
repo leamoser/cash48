@@ -13,7 +13,8 @@ $resets = get_resets_by_wg($wg_id);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>alli agobe zum de kassestürz vo dinere wg.</h1>
+    <h1>Alle<br>Kassenstürze.</h1>
+    <p>Hier siehst du alle Angaben zu den Kassenstürzen in deiner WG.</p>
 </article>
 
 <?php foreach ($resets as $reset) {
@@ -27,7 +28,7 @@ $resets = get_resets_by_wg($wg_id);
     $zahlungen = get_reset_zahlungen_by_reset_id($idreset);
     ?>
     <div class="reset">
-        <h3>duregfüehrt am: <?php echo $datumreset->format('d. F Y | G:i') ?><br>duregfüehrt vo: <?php echo $mensch['name'] ?></h3>
+        <p><strong>Datum: </strong><?php echo $datumreset->format('d. F Y | G:i') ?><br><strong>Von wem gemacht:</strong> <?php echo $mensch['name'] ?></p>
         <?php foreach ($zahlungen as $zahlung) {
             $empfaenger = get_person_by_id($zahlung['empfaenger']);
             $zahler = get_person_by_id($zahlung['zahler']);
@@ -43,7 +44,7 @@ $resets = get_resets_by_wg($wg_id);
             }
             ?>
             <article class="resetbox">
-                <p><strong><?php echo $zahler['name'] . " muss " . $empfaenger['name'] . " " . $zahlung['betrag'] . " CHF bezahlen."  ?></strong></p>
+                <p class="satz"><strong><?php echo $zahler['name'] . " muss " . $empfaenger['name'] . " " . $zahlung['betrag'] . " CHF bezahlen."  ?></strong></p>
                 <div class="stati">
                     <p>Bezahlt: <?php echo $bezahlt ?></p>
                     <div value="<?php echo $zahlung['bezahlt'] ?>" class="status"></div>

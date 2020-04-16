@@ -2,18 +2,19 @@
 :root{
     /*Farben*/
     --bg: white;
-    --akzent: #F5FF00;
+    --akzent: rgb(229, 255, 0);
     --akzent-50: #ffff99;
     --schrift: black;
-    --positiv: #00FF1D;
-    --negativ: #FF0000;
+    --positiv: rgb(14, 182, 90);
+    --negativ: rgb(219, 54, 54);
     /*Abstände*/
     --sidegap: 4vw;
     --topgap-s: 10px;
     --topgap-m: 35px;
     /*Schriftgrössen*/
-    --s-big: 30px;
-    --s-small: 20px;
+    --s-title: 3rem;
+    --s-big: 1.6rem;
+    --s-small: 1.5rem;
 }
 /*ALLGEMEIN-------------------------------*/
 *{
@@ -69,8 +70,9 @@ main{
     padding: var(--topgap-s) var(--sidegap);
 }
 main h1{
-    font-size: var(--s-big);
-    margin: 0 0;
+    font-size: var(--s-title);
+    line-height: 100%;
+    margin: var(--topgap-s) 0;
 }
 main h3{
     margin: 0 0 var(--topgap-s) 0;
@@ -113,24 +115,24 @@ main hr{
 main article.intro{
     margin: var(--topgap-m) 0;
 }
+/*Checkboxen*/
 main form div.checks label{
     padding: var(--topgap-s) 0;
 }
 main form div.checks{
     padding: var(--topgap-s) 0 5px 0;
 }
+/*Buchungen*/
 main div.buchungen{
-    padding: var(--sidegap);
-}
-main div.buchungen:nth-child(odd){
-    background-color: var(--akzent-50);
-}
-main div.reset{
-    padding: 20px 0;
     border-bottom: 1px solid var(--schrift);
+    padding: var(--topgap-m) 0 var(--topgap-m) 0;
 }
+main div.buchungen:last-of-type{
+    border: none;
+}
+/*Fehlermeldungen*/
 .error{
-    color: red;
+    color: var(--negativ);
 }
 /*PROFILE---------------------------------*/
 div.profilteil article.du{
@@ -139,7 +141,13 @@ div.profilteil article.du{
     grid-template-columns: 1fr 5fr;
 }
 
-/*STATUSBOXEN-----------------------------*/
+/*RESET-----------------------------*/
+main div.reset:not(:last-of-type){
+    border-bottom: 1px solid var(--schrift);
+}
+main div.reset{
+    padding: var(--topgap-m) 0;
+}
 div.reset article.resetbox{
     border: 1px solid var(--schrift);
     margin: var(--topgap-s) 0 0 0;
@@ -147,11 +155,10 @@ div.reset article.resetbox{
 div.reset article.resetbox div.stati{
     display: grid;
     grid-gap: 0px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 5fr 1fr;
     outline: 1px solid var(--schrift);
 }
 div.reset article.resetbox div.status{
-    background-color: violet;
     outline: 1px solid var(--schrift);
 }
 div.reset article.resetbox div.status.paid{
@@ -161,6 +168,9 @@ div.reset article.resetbox div.status.open{
     background-color: var(--negativ);
 }
 div.reset article.resetbox p{
+    padding: 5px var(--topgap-s);
+}
+div.reset article.resetbox p.satz{
     padding: var(--topgap-s);
 }
 
@@ -176,9 +186,6 @@ div.balken.positiv{
 }
 div.balken.negativ{
     background-color: var(--negativ);
-}
-div.balken.neutral{
-    background-color: violet;
 }
 
 /*FOOTER----------------------------------*/
