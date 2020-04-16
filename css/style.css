@@ -123,6 +123,10 @@ main div.buchungen{
 main div.buchungen:nth-child(odd){
     background-color: var(--akzent-50);
 }
+main div.reset{
+    padding: 20px 0;
+    border-bottom: 1px solid var(--schrift);
+}
 .error{
     color: red;
 }

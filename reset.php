@@ -31,6 +31,8 @@ if (isset($_POST['make_reset'])) {
         $resetwert = 0;
         values_updaten($resetwert, $wgmensch_id);
     };
+
+    header('Location: /lastreset.php');
 }
 ?>
 

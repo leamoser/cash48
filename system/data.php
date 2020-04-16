@@ -115,6 +115,14 @@ function get_latest_reset_by_wg($wg_id)
   $result = $db->query($sql);
   return $result->fetch();
 }
+//Alle Resets einer WG holen
+function get_resets_by_wg($wg_id)
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM resets WHERE wg='$wg_id' ORDER BY id DESC";
+  $result = $db->query($sql);
+  return $result->fetchAll();
+}
 
 //RESETS-DETAILS--------------------------------------
 function get_reset_details_by_id($idreset)
