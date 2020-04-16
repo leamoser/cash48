@@ -13,6 +13,8 @@ if (isset($_POST['make_reset'])) {
     insert_reset($user_id, $wg_id);
     $lastreset = get_latest_reset_by_wg($wg_id);
     $reset_id = $lastreset['id'];
+    //Array Mailadressen
+    $mailadressen = array();
 
     //Einträge für die Einzelnen Personen
     foreach ($wgmenschen as $wgmensch) {
@@ -20,6 +22,9 @@ if (isset($_POST['make_reset'])) {
         $wgmensch_id = $wgmensch['id'];
         $person = get_person_by_id($wgmensch_id);
         $wgmensch_value = $person['value'];
+        $wgmensch_mail = $person['mail'];
+        //Mailadressen in Array einfügen
+        array_push($mailadressen, $wgmensch_mail);
         //In der Datenbank eintragen
         insert_details_reset($reset_id, $wgmensch_id, $wgmensch_value);
         //Beträge auf 0 zurücksetzen

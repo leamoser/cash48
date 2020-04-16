@@ -4,4 +4,7 @@ function showMenu() {
 function closeMenu() {
     document.querySelector(".overlay").style.display = "none";
 }
-console.log("SCRIPT LOADED");
+
+//Balken
+let balken = document.querySelectorAll(".balken");
+console.log(balken);

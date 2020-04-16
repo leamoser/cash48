@@ -127,6 +127,14 @@ main div.buchungen:nth-child(odd){
     color: red;
 }
 
+/*BALKEN OVERVIEW-------------------------*/
+div.balken{
+    height: 30px;
+    width: 100%;
+    margin: 30px 0 10px 0;
+    background-color: blue;
+}
+
 /*FOOTER----------------------------------*/
 footer{
     width: 100vw;
