@@ -130,6 +130,12 @@ main div.reset{
 .error{
     color: red;
 }
+/*PROFILE---------------------------------*/
+div.profilteil article.du{
+    display: grid;
+    grid-gap: var(--sidegap);
+    grid-template-columns: 1fr 5fr;
+}
 
 /*BALKEN OVERVIEW-------------------------*/
 div.balken{
