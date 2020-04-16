@@ -19,4 +19,14 @@ for (i = 0; i < balken.length; i++) {
         balken[i].classList.add('neutral');
     }
 }
-console.log(balken);
+
+let status = document.querySelectorAll(".status");
+for (i = 0; i < status.length; i++) {
+    let wert = status[i].attributes[0].value;
+    if (wert == 1) {
+        status[i].classList.add('paid');
+    } else {
+        status[i].classList.add('open');
+    }
+}
+console.log(status);

@@ -2,9 +2,11 @@
 :root{
     /*Farben*/
     --bg: white;
-    --akzent: yellow;
+    --akzent: #F5FF00;
     --akzent-50: #ffff99;
     --schrift: black;
+    --positiv: #00FF1D;
+    --negativ: #FF0000;
     /*Abstände*/
     --sidegap: 4vw;
     --topgap-s: 10px;
@@ -137,18 +139,43 @@ div.profilteil article.du{
     grid-template-columns: 1fr 5fr;
 }
 
+/*STATUSBOXEN-----------------------------*/
+div.reset article.resetbox{
+    border: 1px solid var(--schrift);
+    margin: var(--topgap-s) 0 0 0;
+}
+div.reset article.resetbox div.stati{
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 1fr 1fr;
+    outline: 1px solid var(--schrift);
+}
+div.reset article.resetbox div.status{
+    background-color: violet;
+    outline: 1px solid var(--schrift);
+}
+div.reset article.resetbox div.status.paid{
+    background-color: var(--positiv);
+}
+div.reset article.resetbox div.status.open{
+    background-color: var(--negativ);
+}
+div.reset article.resetbox p{
+    padding: var(--topgap-s);
+}
+
 /*BALKEN OVERVIEW-------------------------*/
 div.balken{
-    height: 30px;
+    height: var(--topgap-m);
     width: 100%;
-    margin: 30px 0 10px 0;
+    margin: var(--topgap-m) 0 var(--topgap-s) 0;
     border: 1px solid var(--schrift);
 }
 div.balken.positiv{
-    background-color: green;
+    background-color: var(--positiv);
 }
 div.balken.negativ{
-    background-color: red;
+    background-color: var(--negativ);
 }
 div.balken.neutral{
     background-color: violet;

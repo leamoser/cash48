@@ -24,14 +24,33 @@ $resets = get_resets_by_wg($wg_id);
     //Alle Menschen der WG holen
     $idreset = $reset['id'];
     $details = get_reset_details_by_id($idreset);
+    $zahlungen = get_reset_zahlungen_by_reset_id($idreset);
     ?>
     <div class="reset">
         <h3>duregfüehrt am: <?php echo $datumreset->format('d. F Y | G:i') ?><br>duregfüehrt vo: <?php echo $mensch['name'] ?></h3>
-        <?php foreach ($details as $detail) {
-            $personid = $detail['person'];
-            $person = get_person_by_id($personid);
+        <?php foreach ($zahlungen as $zahlung) {
+            $empfaenger = get_person_by_id($zahlung['empfaenger']);
+            $zahler = get_person_by_id($zahlung['zahler']);
+            if ($zahlung['bezahlt']) {
+                $bezahlt = "Ja";
+            } else {
+                $bezahlt = "Nein";
+            }
+            if ($zahlung['empfangen']) {
+                $empfangen = "Ja";
+            } else {
+                $empfangen = "Nein";
+            }
             ?>
-            <p><strong><?php echo $person['name'] ?>: </strong> <?php echo round($detail['value'], 1) ?> CHF</p>
+            <article class="resetbox">
+                <p><strong><?php echo $zahler['name'] . " muss " . $empfaenger['name'] . " " . $zahlung['betrag'] . " CHF bezahlen."  ?></strong></p>
+                <div class="stati">
+                    <p>Bezahlt: <?php echo $bezahlt ?></p>
+                    <div value="<?php echo $zahlung['bezahlt'] ?>" class="status"></div>
+                    <p>Angekommen: <?php echo $empfangen ?></p>
+                    <div value="<?php echo $zahlung['empfangen'] ?>" class="status"></div>
+                </div>
+            </article>
         <?php } ?>
     </div>
 <?php } ?>

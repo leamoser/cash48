@@ -169,6 +169,13 @@ function insert_zahlungen_reset($reset_id, $empfaenger, $zahler, $betrag)
   $values = array($reset_id, $empfaenger, $zahler, $betrag);
   return $stmt->execute($values);
 }
+function get_reset_zahlungen_by_reset_id($idreset)
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM reset_zahlungen WHERE reset='$idreset'";
+  $result = $db->query($sql);
+  return $result->fetchAll();
+}
 
 //LOGIN------------------------------------------------
 //Login
