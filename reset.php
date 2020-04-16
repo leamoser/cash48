@@ -13,8 +13,6 @@ if (isset($_POST['make_reset'])) {
     insert_reset($user_id, $wg_id);
     $lastreset = get_latest_reset_by_wg($wg_id);
     $reset_id = $lastreset['id'];
-    //Array Mailadressen
-    $mailadressen = array();
 
     //Einträge für die Einzelnen Personen
     foreach ($wgmenschen as $wgmensch) {
@@ -22,9 +20,22 @@ if (isset($_POST['make_reset'])) {
         $wgmensch_id = $wgmensch['id'];
         $person = get_person_by_id($wgmensch_id);
         $wgmensch_value = $person['value'];
-        $wgmensch_mail = $person['mail'];
-        //Mailadressen in Array einfügen
-        array_push($mailadressen, $wgmensch_mail);
+        //Mails versenden-----------------------------------
+        //Infos holen
+        $datum_reset = new DateTime();
+        $datum_final = $datum_reset->format('d. F Y');
+        //finale Variabeln
+        $header = array(
+            'From' => 'cash48 <abrechnung@cash48.ch>',
+            'Reply-To' => 'abrechnung@cash48.ch',
+            'X-Mailer' => 'PHP/' . phpversion(),
+            'Content-Type' => 'text/html; charset=utf-8'
+        );
+        $empfaenger = $person['mail'];
+        $betreff = "Abrechnung Kassensturz: " . $datum_final . " .";
+        $text = "Lieber " . $person['name'] . ",<br> Deine WG hat abgerechnet. Du musst <strong>Person X nn.nn CHF zahlen</strong>.<br> Liebe Gruess, dein cash-48 Team!";
+        //Mail absenden
+        mail($empfaenger, $betreff, $text, $header);
         //In der Datenbank eintragen
         insert_details_reset($reset_id, $wgmensch_id, $wgmensch_value);
         //Beträge auf 0 zurücksetzen
