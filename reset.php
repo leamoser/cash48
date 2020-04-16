@@ -9,18 +9,77 @@ $wgmenschen = get_persons_by_wg($wg_id);
 
 //Kassensturz machen
 if (isset($_POST['make_reset'])) {
-    //Reset eintragen und Reset-ID abrufen
+    //Reset eintragen und Reset-ID abrufen-------------------------
     insert_reset($user_id, $wg_id);
     $lastreset = get_latest_reset_by_wg($wg_id);
     $reset_id = $lastreset['id'];
 
-    //Einträge für die Einzelnen Personen
+    //Einträge für die Einzelnen Personen--------------------------
     foreach ($wgmenschen as $wgmensch) {
         //Details zum Mensch holen
         $wgmensch_id = $wgmensch['id'];
         $person = get_person_by_id($wgmensch_id);
         $wgmensch_value = $person['value'];
-        //Mails versenden-----------------------------------
+        //In der Datenbank eintragen
+        insert_details_reset($reset_id, $wgmensch_id, $wgmensch_value);
+        //Beträge auf 0 zurücksetzen
+        $resetwert = 0;
+        values_updaten($resetwert, $wgmensch_id);
+    };
+
+    //ANFANG: Einträge in Reset-Zahlungen machen----------------------
+    $menschen = get_reset_details_by_id($reset_id);
+    //Array mit Werten und Namen erstellen
+    $werteundnamen = array();
+    foreach ($menschen as $mensch) {
+        $werteundnamen[$mensch['person']] = $mensch['value'];
+    }
+    //Endstand initialisieren
+    $endstand;
+    foreach ($werteundnamen as $wert) {
+        $endstand += abs($wert);
+    }
+    //Einträge machen
+    while ($endstand != 0) {
+        $max = max($werteundnamen);
+        $personmax = array_search($max, $werteundnamen);
+        $min = min($werteundnamen);
+        $personmin = array_search($min, $werteundnamen);
+
+        if (abs($max) > abs($min)) {
+            $werteundnamen[$personmax] -= abs($min);
+            $werteundnamen[$personmin] = 0;
+            $betrag = round(abs($min), 1);
+            insert_zahlungen_reset($reset_id, $personmax, $personmin, $betrag);
+            $text = $personmax . " bekommt von " . $personmin . " CHF " . round(abs($min), 1);
+        } elseif (abs($max) < abs($min)) {
+            $werteundnamen[$personmin] += abs($max);
+            $werteundnamen[$personmax] = 0;
+            $betrag = round($max, 1);
+            insert_zahlungen_reset($reset_id, $personmax, $personmin, $betrag);
+            $text = $personmax . " bekommt von " . $personmin . " CHF " . round($max, 1);
+        } elseif (abs($max) == abs($min)) {
+            $werteundnamen[$personmax] = 0;
+            $werteundnamen[$personmin] = 0;
+            $betrag = round($max, 1);
+            insert_zahlungen_reset($reset_id, $personmax, $personmin, $betrag);
+            $text = $personmax . " bekommt von " . $personmin . " CHF " . round($max, 1);
+        } else {
+            "Da ist aber ein Fehler passiert";
+        }
+        $endstand = 0;
+        foreach ($werteundnamen as $wert) {
+            $endstand += round(abs($wert));
+        }
+    }
+    //ENDE: Einträge in Reset-Zahlungen machen----------------------------
+
+    //Mail versenden------------------------------------------------------
+    foreach ($wgmenschen as $wgmensch) {
+        //Details zum Mensch holen
+        $wgmensch_id = $wgmensch['id'];
+        $person = get_person_by_id($wgmensch_id);
+        $wgmensch_value = $person['value'];
         //Infos holen
         $datum_reset = new DateTime();
         $datum_final = $datum_reset->format('d. F Y');
@@ -33,15 +92,10 @@ if (isset($_POST['make_reset'])) {
         );
         $empfaenger = $person['mail'];
         $betreff = "Abrechnung Kassensturz: " . $datum_final . " .";
-        $text = "Lieber " . $person['name'] . ",<br> Deine WG hat abgerechnet. Du musst <strong>Person X nn.nn CHF zahlen</strong>.<br> Liebe Gruess, dein cash-48 Team!";
+        $text = "Hallo " . $person['name'] . ",<br> Deine WG hat abgerechnet. Du musst <strong>Person X nn.nn CHF zahlen</strong>.<br> Liebe Gruess, dein cash-48 Team!";
         //Mail absenden
         mail($empfaenger, $betreff, $text, $header);
-        //In der Datenbank eintragen
-        insert_details_reset($reset_id, $wgmensch_id, $wgmensch_value);
-        //Beträge auf 0 zurücksetzen
-        $resetwert = 0;
-        values_updaten($resetwert, $wgmensch_id);
-    };
+    }
 
     header('Location: /lastreset.php');
 }

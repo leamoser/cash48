@@ -153,13 +153,20 @@ function get_splits_by_zahlung_id($zahlungsid)
 }
 
 //KASSENSTURZ--------------------------------------------
-//Kassensturz-Splits eintragen
 function insert_details_reset($reset_id, $wgmensch_id, $wgmensch_value)
 {
   $db = get_db_connection();
   $sql = "INSERT INTO reset_details (reset, person, value) VALUES (?, ?, ?)";
   $stmt = $db->prepare($sql);
   $values = array($reset_id, $wgmensch_id, $wgmensch_value);
+  return $stmt->execute($values);
+}
+function insert_zahlungen_reset($reset_id, $empfaenger, $zahler, $betrag)
+{
+  $db = get_db_connection();
+  $sql = "INSERT INTO reset_zahlungen (reset, empfaenger, zahler, betrag) VALUES (?, ?, ?, ?)";
+  $stmt = $db->prepare($sql);
+  $values = array($reset_id, $empfaenger, $zahler, $betrag);
   return $stmt->execute($values);
 }
 
