@@ -13,6 +13,8 @@ if (ort == 'https://cash48.ch/overview.php') {
     let allewerte = [];
     for (i = 0; i < balken.length; i++) {
         let wert = balken[i].attributes[0].value;
+        balken[i].style.width = 0 + '%';
+        balken[i].style.transition = 0.9 + 's';
         allewerte.push(Math.abs(wert));
         if (wert > 0) {
             balken[i].classList.add('positiv');
