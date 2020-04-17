@@ -51,6 +51,15 @@ function values_updaten($neuerwert, $id_person)
   $values = array($neuerwert, $id_person);
   return $stmt->execute($values);
 }
+//Profilbild uploaden
+function profilbild_updaten($dateiname, $id_person)
+{
+  $db = get_db_connection();
+  $sql = "UPDATE menschen SET profilbild = ? WHERE menschen.id = ?";
+  $stmt = $db->prepare($sql);
+  $values = array($dateiname, $id_person);
+  return $stmt->execute($values);
+}
 
 //ZAHLUNGEN--------------------------------------------
 //Alle Zahlungen holen einer WG holen
