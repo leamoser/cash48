@@ -60,6 +60,14 @@ function profilbild_updaten($dateiname, $id_person)
   $values = array($dateiname, $id_person);
   return $stmt->execute($values);
 }
+//Neuster Nutzer holen
+function get_latest_mensch()
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM menschen ORDER BY id DESC LIMIT 1";
+  $result = $db->query($sql);
+  return $result->fetch();
+}
 
 //ZAHLUNGEN--------------------------------------------
 //Alle Zahlungen holen einer WG holen
@@ -102,6 +110,13 @@ function get_wg_by_id($id)
 {
   $db = get_db_connection();
   $sql = "SELECT * FROM wg WHERE id='$id'";
+  $result = $db->query($sql);
+  return $result->fetch();
+}
+function get_latest_wg()
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM wg ORDER BY id DESC LIMIT 1";
   $result = $db->query($sql);
   return $result->fetch();
 }
@@ -233,4 +248,21 @@ function login($login_nn, $login_pw)
   } else {
     return false;
   }
+}
+//WG REGISTRIEREN---------------------------------------
+function insert_wg($wgname)
+{
+  $db = get_db_connection();
+  $sql = "INSERT INTO wg (name) VALUES (?)";
+  $stmt = $db->prepare($sql);
+  $values = array($wgname);
+  return $stmt->execute($values);
+}
+function insert_mensch($nn, $pw, $mail, $wgid)
+{
+  $db = get_db_connection();
+  $sql = "INSERT INTO menschen (name, pass, mail, wg) VALUES (?, ?, ?, ?)";
+  $stmt = $db->prepare($sql);
+  $values = array($nn, $pw, $mail, $wgid);
+  return $stmt->execute($values);
 }
