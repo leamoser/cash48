@@ -67,8 +67,8 @@ if (isset($_POST['zahlung_eintragen'])) {
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>
-        <label for="betrag">Betrag in CHF</label><br>
-        <input type="number" step="0.05" name="betrag" id="betrag">
+        <label for="betrag">Betrag in CHF (bis 499 CHF möglich)</label><br>
+        <input type="number" step="0.05" name="betrag" id="betrag" max="500">
     </div>
     <div>
         <label for="beschreibung">Beschreibung</label><br>
