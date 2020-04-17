@@ -46,3 +46,8 @@ if (ort == "https://cash48.ch/lastreset.php" || ort == "https://cash48.ch/profil
         }
     }
 }
+
+function verschwinden() {
+    let erfolgsmeldung = document.querySelector("#erfolg");
+    erfolgsmeldung.classList.add('weg');
+}

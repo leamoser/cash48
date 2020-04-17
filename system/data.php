@@ -186,6 +186,15 @@ function get_offene_zahlungen_by_user_id($user_id)
   $result = $db->query($sql);
   return $result->fetchAll();
 }
+//Status bezahlt updaten
+function update_status_bezahlt_by_reset_zahlung_id($reset_zahlung_id)
+{
+  $db = get_db_connection();
+  $sql = "UPDATE reset_zahlungen SET bezahlt = 1 WHERE id = ?";
+  $stmt = $db->prepare($sql);
+  $values = array($reset_zahlung_id);
+  return $stmt->execute($values);
+}
 //Ich bekomme 
 function get_offene_empfaenge_by_user_id($user_id)
 {
@@ -193,6 +202,15 @@ function get_offene_empfaenge_by_user_id($user_id)
   $sql = "SELECT * FROM reset_zahlungen WHERE empfaenger='$user_id' AND empfangen=0";
   $result = $db->query($sql);
   return $result->fetchAll();
+}
+//Status empfangen updaten
+function update_status_empfangen_by_reset_zahlung_id($reset_zahlung_id)
+{
+  $db = get_db_connection();
+  $sql = "UPDATE reset_zahlungen SET empfangen = 1, bezahlt = 1 WHERE id = ?";
+  $stmt = $db->prepare($sql);
+  $values = array($reset_zahlung_id);
+  return $stmt->execute($values);
 }
 //LOGIN------------------------------------------------
 //Login

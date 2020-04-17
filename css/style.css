@@ -145,7 +145,35 @@ div.profilteil article.du{
     grid-gap: var(--sidegap);
     grid-template-columns: 1fr 5fr;
 }
-
+/*ERFOLG---------------------------------*/
+div.erfolg{
+    position: absolute;
+    margin: var(--sidegap);
+    width: 92vw;
+    border: 1px solid var(--schrift);
+    background-color: var(--bg);
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 5fr 1fr;
+    transition: 0.5s;
+}
+div.erfolg.weg{
+    transform: translateY(-100px);
+}
+div.erfolg p{
+    padding: var(--topgap-s);
+    color: var(--positiv);
+}
+div.erfolg p:last-of-type{
+    outline: 1px solid var(--schrift);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--akzent-50);
+    color: var(--schrift);
+}
 /*RESET-----------------------------*/
 main div.reset:not(:last-of-type){
     border-bottom: 1px solid var(--schrift);

@@ -5,6 +5,15 @@ require_once('system/config.php');
 require_once('system/data.php');
 require_once('system/sessionhandler.php');
 
+if (isset($_POST['zahlung_bezahlt'])) {
+    update_status_bezahlt_by_reset_zahlung_id($_POST['reset_zahlung_id']);
+    echo "<div id='erfolg' class='erfolg'><p>Die Zahlung wurde als bezahlt markiert.</p><p onclick='verschwinden()'>X</p></div>";
+}
+if (isset($_POST['zahlung_empfangen'])) {
+    update_status_empfangen_by_reset_zahlung_id($_POST['reset_zahlung_id']);
+    echo "<div id='erfolg' class='erfolg'><p>Die Zahlung wurde als empfangen markiert</p><p onclick='verschwinden()'>X</p></div>";
+}
+
 $du = get_person_by_id($user_id);
 $wg = get_wg_by_id($du['wg']);
 $wgmitbewohner = get_persons_by_wg($wg_id);
@@ -51,6 +60,7 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
             <article class="resetbox">
                 <p class="satz"><strong><?php echo "Du musst " . $empfaenger['name'] . " " . $zahlung['betrag'] . " CHF bezahlen."  ?></strong></p>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <input type="hidden" name="reset_zahlung_id" value="<?php echo $zahlung['id'] ?>">
                     <button type="submit" name="zahlung_bezahlt" value="zahlung_bezahlt">Ich habe bezahlt.</button>
                 </form>
             </article>
@@ -74,7 +84,8 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
                     <div value="<?php echo $empfang['bezahlt'] ?>" class="status"></div>
                 </div>
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                    <button type="submit" name="zahlung_bezahlt" value="zahlung_bezahlt">Geld bekommen.</button>
+                    <input type="hidden" name="reset_zahlung_id" value="<?php echo $empfang['id'] ?>">
+                    <button type="submit" name="zahlung_empfangen" value="zahlung_empfangen">Geld bekommen.</button>
                 </form>
             </article>
         <?php }
