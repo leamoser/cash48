@@ -107,6 +107,11 @@ main button{
     font-weight: bold;
     margin: var(--topgap-m) 0;
 }
+main div.profilteil button{
+    border: none;
+    border-top: 1px solid var(--schrift);
+    margin: 0 0;
+}
 main hr{
     border: none;
     border-bottom: 1px solid var(--schrift);
@@ -148,29 +153,32 @@ main div.reset:not(:last-of-type){
 main div.reset{
     padding: var(--topgap-m) 0;
 }
-div.reset article.resetbox{
-    border: 1px solid var(--schrift);
+article.resetbox{
+    outline: 1px solid var(--schrift);
     margin: var(--topgap-s) 0 0 0;
 }
-div.reset article.resetbox div.stati{
+div.profilteil article.resetbox{
+    margin: var(--topgap-s) 0 calc(var(--topgap-m) - 10px) 0;
+}
+article.resetbox div.stati{
     display: grid;
     grid-gap: 0px;
     grid-template-columns: 5fr 1fr;
     outline: 1px solid var(--schrift);
 }
-div.reset article.resetbox div.status{
+article.resetbox div.status{
     outline: 1px solid var(--schrift);
 }
-div.reset article.resetbox div.status.paid{
+article.resetbox div.status.paid{
     background-color: var(--positiv);
 }
-div.reset article.resetbox div.status.open{
+article.resetbox div.status.open{
     background-color: var(--negativ);
 }
-div.reset article.resetbox p{
+article.resetbox p{
     padding: 5px var(--topgap-s);
 }
-div.reset article.resetbox p.satz{
+article.resetbox p.satz{
     padding: var(--topgap-s);
 }
 

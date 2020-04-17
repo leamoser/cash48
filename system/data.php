@@ -177,6 +177,23 @@ function get_reset_zahlungen_by_reset_id($idreset)
   return $result->fetchAll();
 }
 
+//BEZAHLEN UND EMPFANGEN-------------------------------
+//Ich muss bezahlen
+function get_offene_zahlungen_by_user_id($user_id)
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM reset_zahlungen WHERE zahler='$user_id' AND bezahlt=0";
+  $result = $db->query($sql);
+  return $result->fetchAll();
+}
+//Ich bekomme 
+function get_offene_empfaenge_by_user_id($user_id)
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM reset_zahlungen WHERE empfaenger='$user_id' AND empfangen=0";
+  $result = $db->query($sql);
+  return $result->fetchAll();
+}
 //LOGIN------------------------------------------------
 //Login
 function login($login_nn, $login_pw)

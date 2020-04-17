@@ -6,6 +6,7 @@ function closeMenu() {
 }
 
 let ort = window.location.href;
+console.log(ort);
 
 //Balken
 if (ort == 'https://cash48.ch/overview.php') {
@@ -34,7 +35,7 @@ if (ort == 'https://cash48.ch/overview.php') {
 
 }
 
-if (ort == "https://cash48.ch/lastreset.php") {
+if (ort == "https://cash48.ch/lastreset.php" || ort == "https://cash48.ch/profile.php") {
     let status = document.querySelectorAll(".status");
     for (i = 0; i < status.length; i++) {
         let wert = status[i].attributes[0].value;
