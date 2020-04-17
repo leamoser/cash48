@@ -94,7 +94,7 @@ if (isset($_POST['register_wg_submit'])) {
 <a href="/index.php">
     <p>-> Einloggen</p>
 </a>
-<a href="#">
+<a href="/register.php">
     <p>-> für bestehende WG registrieren</p>
 </a>
 

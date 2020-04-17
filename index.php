@@ -68,8 +68,8 @@ if (isset($_POST['login_submit'])) {
 <a href="/registerwg.php">
   <p>-> neue WG registrieren</p>
 </a>
-<a href="#">
-  <p>-> für bestehende WG registrieren</p>
+<a href="/register.php">
+  <p>-> für bestehende WG registrieren.</p>
 </a>
 
 <?php include('template/foot.php') ?>
