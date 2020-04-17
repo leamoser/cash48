@@ -52,10 +52,12 @@ $anzahl = count_wgs();
 
 <?php include('template/head.php') ?>
 <article class="intro">
-  <h1>cash48</h1>
+  <h1>cash48💰</h1>
   <p>Deine WG-App des Vertrauen.</p>
-  <p>Bereits <span id="mark"><?php echo $anzahl['COUNT(name)']; ?></span> glückliche WG's.</p>
+  <p>Bereits <span id="mark"><?php echo $anzahl['COUNT(name)']; ?></span> glückliche WG's.</p><br>
+  <a href="/howto.php">-> wie funktionierts?</a>
 </article>
+
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <p>Nutzername</p>
   <input type="text" name="nn" id="id_nn">
@@ -68,11 +70,7 @@ $anzahl = count_wgs();
   <?php } ?>
   <button type="submit" name="login_submit" value="einloggen">Anmelden</button>
 </form>
-<a href="/registerwg.php">
-  <p>-> neue WG registrieren</p>
-</a>
-<a href="/register.php">
-  <p>-> für bestehende WG registrieren.</p>
-</a>
+<a href="/registerwg.php">-> neue WG registrieren</a><br>
+<a href="/register.php">-> für bestehende WG registrieren.</a>
 
 <?php include('template/foot.php') ?>

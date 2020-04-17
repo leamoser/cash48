@@ -51,3 +51,7 @@ function verschwinden() {
     let erfolgsmeldung = document.querySelector("#erfolg");
     erfolgsmeldung.classList.add('weg');
 }
+
+function goBack() {
+    history.go(-1);
+}
