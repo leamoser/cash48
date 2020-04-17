@@ -231,7 +231,8 @@ article.resetbox p.satz{
 /*BALKEN OVERVIEW-------------------------*/
 div.balken{
     height: var(--topgap-m);
-    width: 100%;
+    width: 0%;
+    transition: 0.5s;
     margin: var(--topgap-m) 0 var(--topgap-s) 0;
     border: 1px solid var(--schrift);
 }

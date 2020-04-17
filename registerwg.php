@@ -57,7 +57,7 @@ if (isset($_POST['register_wg_submit'])) {
         );
         $empfaenger = $_POST['mailadresse'];
         $betreff = "Deine Neue WG.";
-        $text = "Hallo " . $nn . ",<br> Du hast einen neue WG erstellt. Sie heisst <strong>" . $wgname .  "</strong>. <br> Teile deinen Mitbewohner*innen folgenden Key mit. Mit dem können Sie sich in die WG einloggen.<br><br><strong>Key: " . $secretkey . "</strong><br><br>Beste Grüsse, dein cash48-Team.";
+        $text = "Hallo " . $nn . ",<br> Du hast einen neue WG erstellt. Sie heisst <strong>" . $wgname .  "</strong>. <br> Teile deinen Mitbewohner*innen folgenden Key mit. Mit dem können Sie sich in die WG einloggen.<br><br><strong>Key: " . $secretkey . "</strong><br><strong>Link: <a href'https://www.cash48.ch/register.php'>https://www.cash48.ch/register.php</a></strong><br><br>Beste Grüsse, dein cash48-Team.";
         mail($empfaenger, $betreff, $text, $header);
         //Mail versenden----------------
         header('Location: /profile.php');

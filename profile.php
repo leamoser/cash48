@@ -24,7 +24,7 @@ if (isset($_POST['profilbild_upload'])) {
         die("Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt");
     }
     //Überprüfung der Dateigröße
-    $max_size = 500 * 1024; //500 KB
+    $max_size = 1500 * 1024; //1500 KB
     if ($_FILES['datei']['size'] > $max_size) {
         die("Bitte keine Dateien größer 500kb hochladen");
     }

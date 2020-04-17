@@ -92,7 +92,7 @@ if (isset($_POST['make_reset'])) {
         );
         $empfaenger = $person['mail'];
         $betreff = "Abrechnung Kassensturz: " . $datum_final . " .";
-        $text = "Hallo " . $person['name'] . ",<br> Deine WG hat abgerechnet. Du musst <strong>Person X nn.nn CHF zahlen</strong>.<br> Liebe Gruess, dein cash-48 Team!";
+        $text = "Hallo " . $person['name'] . ",<br> Deine WG hat abgerechnet. Wem du was zahlen musst oder von wem du was bekommst, siehst du in der App auf deinem Profil.<br><br> Liebe Gruess, dein cash-48 Team!";
         //Mail absenden
         mail($empfaenger, $betreff, $text, $header);
     }
