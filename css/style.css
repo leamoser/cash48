@@ -28,6 +28,11 @@ img{
     width: 100%;
     height: auto;
 }
+span#mark{
+    padding: 0 5px;
+    background-color: var(--akzent-50);
+    font-family: monospace;
+}
 /*HEADER----------------------------------*/
 header{
     width: 100vw;

@@ -120,6 +120,13 @@ function get_latest_wg()
   $result = $db->query($sql);
   return $result->fetch();
 }
+function count_wgs()
+{
+  $db = get_db_connection();
+  $sql = "SELECT COUNT(name) FROM wg";
+  $result = $db->query($sql);
+  return $result->fetch();
+}
 
 //RESETS-----------------------------------------------
 //Reset eintragen

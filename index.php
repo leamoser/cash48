@@ -45,6 +45,8 @@ if (isset($_POST['login_submit'])) {
     }
   } else { };
 }
+//WG's zählen
+$anzahl = count_wgs();
 
 ?>
 
@@ -52,6 +54,7 @@ if (isset($_POST['login_submit'])) {
 <article class="intro">
   <h1>cash48</h1>
   <p>Deine WG-App des Vertrauen.</p>
+  <p>Bereits <span id="mark"><?php echo $anzahl['COUNT(name)']; ?></span> glückliche WG's.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
   <p>Nutzername</p>
