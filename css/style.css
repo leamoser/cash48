@@ -164,6 +164,12 @@ article.du section img{
     object-fit: cover;
     margin-right: var(--topgap-s);
 }
+p.info{
+    border: 1px solid var(--schrift);
+    padding: var(--topgap-s);
+    margin: var(--topgap-s) 0;
+    background-color: var(--akzent-50);
+}
 /*ERFOLG---------------------------------*/
 div.erfolg{
     position: absolute;

@@ -96,9 +96,10 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
 </div>
 <!-- Profilteil GELD ZAHLEN -->
 <div class="profilteil">
-    <h2>Du musst noch Zahlen...</h2>
+    <h2>Deine Finanzen</h2>
     <?php
     if (!empty($zahlen)) {
+        //echo "<p><strong>Du musst noch Zahlen...</strong></p>";
         foreach ($zahlen as $zahlung) {
             $empfaenger = get_person_by_id($zahlung['empfaenger']);
             ?>
@@ -111,14 +112,14 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
             </article>
         <?php }
 } else { ?>
-        <p>Du musst im Moment niemandem mehr etwas bezahlen.</p>
+        <p class="info">Du musst im Moment niemandem mehr etwas bezahlen.</p>
     <?php } ?>
 </div>
 <!-- Profilteil GELD EMPFANGEN -->
 <div class="profilteil">
-    <h2>Du bekommst noch Geld...</h2>
     <?php
     if (!empty($empfangen)) {
+        //echo '<p><strong>Du bekommst noch Geld...</strong></p>';
         foreach ($empfangen as $empfang) {
             $zahler = get_person_by_id($empfang['zahler']);
             ?>
@@ -135,7 +136,7 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
             </article>
         <?php }
 } else { ?>
-        <p>Du bekommst von niemandem mehr Geld.</p>
+        <p class="info">Du bekommst von niemandem mehr Geld.</p>
     <?php } ?>
 </div>
 <?php include('template/foot.php') ?>
