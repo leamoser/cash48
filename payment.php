@@ -7,7 +7,7 @@ require_once('system/sessionhandler.php');
 
 $menschen = get_persons_by_wg($wg_id);
 $eintragender = get_person_by_id($user_id);
-
+$msg = "";
 if (isset($_POST['zahlung_eintragen'])) {
     $zahlung_eintragen = true;
 
@@ -17,6 +17,7 @@ if (isset($_POST['zahlung_eintragen'])) {
         $betrag = $_POST['betrag'];
     } else {
         $zahlung_eintragen = false;
+        $msg .= "Kein Betrag eingegeben<br>";
     }
 
     //Validierung Beschreibung
@@ -25,6 +26,7 @@ if (isset($_POST['zahlung_eintragen'])) {
         $beschreibung = $_POST['beschreibung'];
     } else {
         $zahlung_eintragen = false;
+        $msg .= "Kein Beschrieb eingegeben<br>";
     }
 
     //Zuweisung
@@ -32,6 +34,7 @@ if (isset($_POST['zahlung_eintragen'])) {
         $zahlung_eintragen = true;
     } else {
         $zahlung_eintragen = false;
+        $msg .= "Niemanden ausgewählt.<br>";
     }
 
     //Wenn alles OK dann Zeugs eintragen
@@ -66,6 +69,12 @@ if (isset($_POST['zahlung_eintragen'])) {
     <p>Salü <?php echo $user['name'] ?>. Gib hier die Angaben zu deiner Zahlung ein und trage sie so ins System ein.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+    <?php if (strlen($msg) != 0) { ?>
+        <div class="error">
+            <?php echo $msg; ?>
+        </div>
+    <?php } ?>
+    <br><br>
     <div>
         <label for="betrag">Betrag in CHF (bis 499 CHF möglich)</label><br>
         <input type="number" step="0.05" name="betrag" id="betrag" max="500">
@@ -76,6 +85,13 @@ if (isset($_POST['zahlung_eintragen'])) {
     </div>
     <div>
         <p>Personen, die die Zahlung betrifft</p>
+        <div class="checks">
+            <label class="container" for="toggleall">
+
+                <input type="checkbox" onClick="toggle(this)" id="toggleall">
+                <strong>Alle anwählen</strong>
+            </label>
+        </div>
         <?php foreach ($menschen as $mensch) { ?>
             <div class="checks">
                 <label class="container" for="<?php echo $mensch['name'] ?>">

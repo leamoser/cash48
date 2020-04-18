@@ -1,14 +1,14 @@
+//Navigation
 function showMenu() {
     document.querySelector(".overlay").style.display = "flex";
 }
 function closeMenu() {
     document.querySelector(".overlay").style.display = "none";
 }
-
+//Initialisierungsfunktion für Ausführung der einzelnen Dingen
 let ort = window.location.href;
 console.log(ort);
-
-//Balken
+//Balken animieren und einfärben unterseite Übersicht
 if (ort == 'https://cash48.ch/overview.php') {
     let balken = document.querySelectorAll(".balken");
     let allewerte = [];
@@ -34,7 +34,7 @@ if (ort == 'https://cash48.ch/overview.php') {
     }
 
 }
-
+//Statusboxen einfärben unterseite lastreset und Profil
 if (ort == "https://cash48.ch/lastreset.php" || ort == "https://cash48.ch/profile.php") {
     let status = document.querySelectorAll(".status");
     for (i = 0; i < status.length; i++) {
@@ -46,12 +46,19 @@ if (ort == "https://cash48.ch/lastreset.php" || ort == "https://cash48.ch/profil
         }
     }
 }
-
+//Meldungen verschwinden lassen unterseite 
 function verschwinden() {
     let erfolgsmeldung = document.querySelector("#erfolg");
     erfolgsmeldung.classList.add('weg');
 }
-
+//Zurück-Button auf der Startseite
 function goBack() {
     history.go(-1);
+}
+//Test Checkbox zum alles anwählen
+function toggle(source) {
+    let checkboxes = document.getElementsByName('zuweisung[]');
+    for (var i = 0, n = checkboxes.length; i < n; i++) {
+        checkboxes[i].checked = source.checked;
+    }
 }
