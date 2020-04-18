@@ -80,14 +80,14 @@ if (isset($_POST['register_wg_submit'])) {
     </div>
 <?php } ?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-    <p>WG-Name</p>
-    <input type="text" name="wgname" id="id_wgname">
+    <p>WG-Name (mind. 4 Zeichen)</p>
+    <input type="text" name="wgname" id="id_wgname" minlength="4" maxlength="50">
     <p>Deine Mailadresse</p>
-    <input type="text" name="mailadresse" id="id_mailadresse">
+    <input type="email" name="mailadresse" id="id_mailadresse">
     <p>Dein Nutzername</p>
-    <input type="text" name="nn" id="id_nn">
-    <p>Dein Passwort</p>
-    <input type="password" name="pw" id="id_pw">
+    <input type="text" name="nn" id="id_nn" minlength="2" maxlength="50">
+    <p>Dein Passwort (mind. 4 Zeichen)</p>
+    <input type="password" name="pw" id="id_pw" minlength="4" maxlength="50">
     <p>Wenn du deine WG registriert hast, kannst du dich mit diesem Login einloggen. Per Mail bekommst du einen WG-Key. Leite diesen deinen WG-Mitbewohner*innen weiter. Mit diesem Key können sie sich dann für die WG registrieren.</p>
     <button type="submit" name="register_wg_submit" value="register">WG registrieren und einloggen</button>
 </form>

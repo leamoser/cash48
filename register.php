@@ -54,9 +54,7 @@ if (isset($_POST['register_for_wg_submit'])) {
         header('Location: /profile.php');
         session_start();
         $_SESSION['userid'] = $user['id'];
-    } else {
-        $msg .= "Irgendwas ist falsch gelaufen.";
-    }
+    } else { }
 }
 ?>
 
@@ -74,11 +72,11 @@ if (isset($_POST['register_for_wg_submit'])) {
     <p>Secret Key</p>
     <input type="number" name="secretkey" id="id_secretkey">
     <p>Deine Mailadresse</p>
-    <input type="text" name="mailadresse" id="id_mailadresse">
+    <input type="email" name="mailadresse" id="id_mailadresse">
     <p>Dein Nutzername</p>
-    <input type="text" name="nn" id="id_nn">
-    <p>Dein Passwort</p>
-    <input type="password" name="pw" id="id_pw">
+    <input type="text" name="nn" id="id_nn" minlength="2" maxlength="50">
+    <p>Dein Passwort (mind. 4 Zeichen)</p>
+    <input type="password" name="pw" id="id_pw" minlength="4" maxlength="50">
     <button type="submit" name="register_for_wg_submit" value="register_for_wg">Für WG registrieren</button>
 </form>
 <a href="/index.php">

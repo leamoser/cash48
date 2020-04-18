@@ -92,6 +92,7 @@ p{
 main input[type="number"],
 main input[type="text"],
 main input[type="password"],
+main input[type="email"],
 main textarea{
     font-size: var(--s-big);
     width: 100%;
