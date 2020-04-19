@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/normalize.css">
     <!-- PWA -->
     <link rel='manifest' href='/manifest.json'>
+    <link rel="apple-touch-icon" href="icons/icon-300x300.png">
     <!-- PWA -->
 </head>
 <?php

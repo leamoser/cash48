@@ -6,90 +6,49 @@
     "display": "fullscreen",
     "start_url": "https://cash48.ch/",
     "short_name": "cash48",
-    "theme_color": "transparent",
+    "theme_color": "#FFFB00",
     "description": "",
     "orientation": "any",
-    "background_color": "#d9e274",
+    "background_color": "#FFFB00",
     "related_applications": [],
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "[Embedded]",
-            "sizes": "44x44"
-        },
-        {
-            "src": "[Embedded]",
+            "src": "icons/icon-48x48.png",
             "sizes": "48x48"
         },
         {
-            "src": "[Embedded]",
-            "sizes": "1240x600"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "300x300"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "150x150"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "88x88"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "24x24"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "50x50"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "620x300"
-        },
-        {
-            "src": "[Embedded]",
+            "src": "icons/icon-192x192.png",
             "sizes": "192x192"
         },
         {
-            "src": "[Embedded]",
+            "src": "icons/icon-144x144.png",
             "sizes": "144x144"
         },
         {
-            "src": "[Embedded]",
+            "src": "icons/icon-96x96.png",
             "sizes": "96x96"
         },
         {
-            "src": "[Embedded]",
+            "src": "icons/icon-72x72.png",
             "sizes": "72x72"
         },
         {
-            "src": "[Embedded]",
-            "sizes": "36x36"
-        },
-        {
-            "src": "[Embedded]",
-            "sizes": "1024x1024"
-        },
-        {
-            "src": "[Embedded]",
+            "src": "icons/icon-180x180.png",
             "sizes": "180x180"
         },
         {
-            "src": "[Embedded]",
+            "src": "icons/icon-152x152.png",
             "sizes": "152x152"
         },
         {
-            "src": "[Embedded]",
+            "src": "icons/icon-120x120.png",
             "sizes": "120x120"
         },
         {
-            "src": "[Embedded]",
-            "sizes": "76x76"
+            "src": "icons/icon-300x300.png",
+            "sizes": "300x300"
         }
     ],
-    "screenshots": [],
     "generated": "true"
 }
