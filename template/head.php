@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/normalize.css">
+    <link rel='shortcut icon' type='image/x-icon' href='icons/favicon.ico' />
     <!-- PWA -->
     <link rel='manifest' href='/manifest.json'>
     <link rel="apple-touch-icon" href="icons/icon-300x300.png">
