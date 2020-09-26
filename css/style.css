@@ -121,6 +121,9 @@ main button.small{
 main button.upload{
     margin: var(--topgap-s) 0 0 0;
 }
+main button#produkt_eintragen{
+    margin-top: 0px;
+}
 main div.profilteil button.reset_button{
     border: none;
     border-top: 1px solid var(--schrift);
@@ -248,6 +251,23 @@ div.balken.positiv{
 }
 div.balken.negativ{
     background-color: var(--negativ);
+}
+
+/*EINKAUFSLISTE---------------------------*/
+article.einkaufsliste div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+}
+article.einkaufsliste button.delete_product{
+    border: none;
+    margin: 0 0;
+    padding: 0 0;
+    font-size: var(--s-small);
+    background-color: transparent;
 }
 
 /*FOOTER----------------------------------*/

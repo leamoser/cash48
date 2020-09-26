@@ -273,3 +273,28 @@ function insert_mensch($nn, $pw, $mail, $wgid)
   $values = array($nn, $pw, $mail, $wgid);
   return $stmt->execute($values);
 }
+
+//EINKAUFSLISTE--------------------------------------------
+function insert_product($produkt_name, $wg_id, $status_prod, $user_id)
+{
+  $db = get_db_connection();
+  $sql = "INSERT INTO einkaufsliste (produkt, wg, status, user) VALUES (?, ?, ?, ?)";
+  $stmt = $db->prepare($sql);
+  $values = array($produkt_name, $wg_id, $status_prod, $user_id);
+  return $stmt->execute($values);
+}
+function get_products_by_wg($wg_id)
+{
+  $db = get_db_connection();
+  $sql = "SELECT * FROM einkaufsliste WHERE wg='$wg_id' AND status=1 ORDER BY id DESC";
+  $result = $db->query($sql);
+  return $result->fetchAll();
+}
+function update_product_status($id_product)
+{
+  $db = get_db_connection();
+  $sql = "UPDATE einkaufsliste SET status = 0 WHERE id = ?";
+  $stmt = $db->prepare($sql);
+  $values = array($id_product);
+  return $stmt->execute($values);
+}
