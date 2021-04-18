@@ -65,7 +65,7 @@ if (isset($_POST['zahlung_eintragen'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Zahlung<br> erfassen.</h1>
+    <h1>Zahlung<br> erfassen 💸</h1>
     <p>Salü <?php echo $user['name'] ?>. Gib hier die Angaben zu deiner Zahlung ein und trage sie so ins System ein.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

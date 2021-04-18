@@ -60,7 +60,7 @@ if (isset($_POST['register_for_wg_submit'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Für eine WG<br>registrieren</h1>
+    <h1>Für eine WG<br>registrieren 🧬</h1>
     <p>Hier kannst du dich für eine schon bestehende WG registrieren. Den Secretkey solltest du von der Person, die die WG erstellt hat, bekommen haben.</p>
 </article>
 <?php if (strlen($msg) != 0) { ?>

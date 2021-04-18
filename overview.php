@@ -12,7 +12,7 @@ $menschen = get_persons_by_wg($wg_id);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Eine<br>Übersicht.</h1>
+    <h1>Eine<br>Übersicht 🏦</h1>
     <p>Hier siehst du, wie die Finanzen in deiner WG im Moment so aussehen.</p>
 </article>
 <?php foreach ($menschen as $mensch) { ?>

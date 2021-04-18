@@ -104,7 +104,7 @@ if (isset($_POST['make_reset'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Kassensturz<br>machen.</h1>
+    <h1>Kassensturz<br>machen 🤑</h1>
     <p>Diese Aktion ist final. Der aktuelle Stand wird bei allen auf 0 zurückgesetzt. Auf dem Nachfolgenden Screen siehts du, wer wem was schuldet.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

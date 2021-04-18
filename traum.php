@@ -24,7 +24,7 @@ if (isset($_POST['traum_eintragen'])) {
 
 <?php include('template/head.php') ?>
     <article class="intro">
-        <h1>Träume 😴</h1>
+        <h1>Eure<br>Träume 🛏️</h1>
         <p>Hier werden alle Träume, die Personen in deiner WG hatten erfasst.</p>
     </article>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

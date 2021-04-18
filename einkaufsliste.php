@@ -32,7 +32,7 @@ if (isset($_POST['delete_product'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Einkaufsliste</h1>
+    <h1>Deine<br>Einkaufsliste 🛒</h1>
     <p>Hier entsteht die WG-Einkaufsliste. Trage Produkte ein die gekauft werden müssen und streiche sie, wenn sie gekauft worden sind.</p>
 </article>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

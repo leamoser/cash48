@@ -71,7 +71,7 @@ if (isset($_POST['register_wg_submit'])) {
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1>Neue WG<br>registrieren</h1>
+    <h1>Neue WG<br>registrieren 🏡</h1>
     <p>Hier kannst du eine neue WG eröffnen. Deine WG-Mitbewohner*innen kannst du in einem späteren Schritt einladen. </p>
 </article>
 <?php if (strlen($msg) != 0) { ?>

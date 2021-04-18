@@ -64,11 +64,11 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
 
 <?php include('template/head.php') ?>
 <article class="intro">
-    <h1><?php echo $du['name'] ?>'s<br> Profil.</h1>
+    <h1><?php echo $du['name'] ?>'s<br> Profil 🫀</h1>
     <p>Hier siehst du alle Angaben zu dir, deiner WG und den Zahlungen die du entweder tätigen musst oder bekommen solltest.</p>
 </article>
 <div class="profilteil">
-    <h2>Das bist du.</h2>
+    <h2>Das bist du</h2>
     <article class="du">
         <section>
             <img src="/uploads/files/<?php echo $du['profilbild'] ?>">
@@ -88,7 +88,7 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
     <?php } ?>
 </div>
 <div class="profilteil">
-    <h2>Das ist deine WG.</h2>
+    <h2>Das ist deine WG</h2>
     <p><strong>WG-Name: </strong><?php echo $wg['name'] ?></p>
     <p><strong>Bewohner*innen: </strong><br>
         <?php foreach ($wgmitbewohner as $mensch) {
