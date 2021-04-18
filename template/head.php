@@ -29,6 +29,7 @@ $angemeldetals = get_person_by_id($user_id);
                 <li><a href="reset.php">Kassensturz machen</a></li>
                 <li><a href="lastreset.php">Kassenstürze</a></li>
                 <li><a href="einkaufsliste.php">Einkaufsliste</a></li>
+                <li><a href="traum.php">Träume</a></li>
                 <li><a href="profile.php">Dein Profil</a></li>
                 <li><a href="index.php">Logout</a></li>
             </ul>

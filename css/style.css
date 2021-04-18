@@ -270,6 +270,12 @@ article.einkaufsliste button.delete_product{
     background-color: transparent;
 }
 
+/*TRAUM---------------------------------*/
+article.traume div{
+    border-bottom:  1px solid black;
+    padding: 20px 0;
+}
+
 /*FOOTER----------------------------------*/
 footer{
     width: 100vw;

@@ -77,6 +77,7 @@ $empfangen = get_offene_empfaenge_by_user_id($user_id);
             <p><strong>Nutzername </strong><?php echo $du['name'] ?></p>
             <p><strong>Mail: </strong><?php echo $du['mail'] ?></p>
             <p><strong>Kontostand: </strong><?php echo round($du['value'], 1) ?> CHF</p>
+            <p><strong>Träume: </strong><?php echo count_dreams_by_person($user_id)["COUNT(description)"] ?></p>
         </section>
     </article>
     <?php if ($du['profilbild'] == "default.jpeg") { ?>

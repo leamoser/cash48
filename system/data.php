@@ -298,3 +298,27 @@ function update_product_status($id_product)
   $values = array($id_product);
   return $stmt->execute($values);
 }
+
+//TRÄUME--------------------------------------------
+function insert_traum($traum_desc, $user_id, $wg_id)
+{
+    $db = get_db_connection();
+    $sql = "INSERT INTO traume (description, user, wg) VALUES (?, ?, ?)";
+    $stmt = $db->prepare($sql);
+    $values = array($traum_desc, $user_id, $wg_id);
+    return $stmt->execute($values);
+}
+function get_dreams_by_wg($wg_id)
+{
+    $db = get_db_connection();
+    $sql = "SELECT * FROM traume WHERE wg='$wg_id' ORDER BY id DESC";
+    $result = $db->query($sql);
+    return $result->fetchAll();
+}
+function count_dreams_by_person($user_id)
+{
+    $db = get_db_connection();
+    $sql = "SELECT COUNT(description) FROM traume WHERE user = '$user_id'";
+    $result = $db->query($sql);
+    return $result->fetch();
+}
